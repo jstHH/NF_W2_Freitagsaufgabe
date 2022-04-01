@@ -21,7 +21,7 @@ public class Product {
     }
 
     public String toStringToDisplay() {
-        return "\nProduktname: " + productName + "\nProduktnummer: " + productID;
+        return "\nProduktname:\t" + productName + "\nProduktnummer:\t" + productID;
     }
 
     @Override

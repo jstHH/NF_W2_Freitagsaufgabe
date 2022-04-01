@@ -20,7 +20,7 @@ class ProductTest {
 
     @org.junit.jupiter.api.Test
     void toStringToDisplay() {
-        String expected = "\nProduktname: " + testProdukt.getProductName() + "\nProduktnummer: " + testProdukt.getProductID();
+        String expected = "\nProduktname:\t" + testProdukt.getProductName() + "\nProduktnummer:\t" + testProdukt.getProductID();
         assertEquals(expected, testProdukt.toStringToDisplay());
     }
 
