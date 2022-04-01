@@ -37,7 +37,7 @@ public class ProductRepo {
     public String toStringToDisplay() {
         String result = "";
         for (Product product: products) {
-            result = result + product.toStringToDisplay() + "\n";
+            result += product.toStringToDisplay() + "\n";
         }
         return result;
 
