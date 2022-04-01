@@ -2,6 +2,7 @@ package jst.shop;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class ShopService {
     private ProductRepo productRepo;
@@ -13,11 +14,11 @@ public class ShopService {
         orderRepo = new OrderRepo();
     }
 
-    public Product getProductbyID(int id) {
+    public Optional<Product> getProductbyID(int id) {
         try {
-            return productRepo.getProductByID(id);
+            return Optional.of(productRepo.getProductByID(id));
         } catch (NoSuchElementException e) {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -29,11 +30,11 @@ public class ShopService {
         orderRepo.addOrder();
     }
 
-    public Order getOrder(int id) {
+    public Optional<Order> getOrder(int id) {
         try {
-            return orderRepo.getOrder(id);
+            return Optional.of(orderRepo.getOrder(id));
         } catch (NoSuchElementException e){
-            return null;
+            return Optional.empty();
         }
     }
 
