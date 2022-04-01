@@ -25,7 +25,7 @@ public class Order {
     }
 
     public String toStringToDisplay() {
-        String result = "Ihre Bestellung:\n";
+        String result = "Bestellung " + orderID + ":\n";
         for (Product product : products) {
             result += product.toStringToDisplay();
         }

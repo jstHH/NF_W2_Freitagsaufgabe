@@ -45,7 +45,7 @@ class OrderTest {
 
     @Test
     void toStringToDisplay() {
-        String expected = "Ihre Bestellung:\n\nProduktname:\tTestprodukt-1\nProduktnummer:\t123\nProduktname:\tTestprodukt-2\nProduktnummer:\t456";
+        String expected = "Bestellung 1:\n\nProduktname:\tTestprodukt-1\nProduktnummer:\t123\nProduktname:\tTestprodukt-2\nProduktnummer:\t456";
 
         Order testOrder = new Order(1);
         testOrder.addProduct(produkt1);
