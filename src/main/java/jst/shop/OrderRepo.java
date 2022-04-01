@@ -25,7 +25,7 @@ public class OrderRepo {
                 return order;
             }
         }
-        throw new NoSuchElementException();
+        throw new NoSuchElementException("Keine Bestellung mit ID" + id + " vorhanden.");
     }
 
     public List<Order> getOrderList() {
