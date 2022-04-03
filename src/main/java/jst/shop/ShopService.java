@@ -41,4 +41,16 @@ public class ShopService {
     public List<Order> getOrderList() {
         return orderRepo.getOrderList();
     }
+
+    public String getProductListString() {
+        return productRepo.toStringToDisplay();
+    }
+
+    public String getOrderListString() {
+        return orderRepo.toStringToDisplay();
+    }
+
+    public String getOrderString(int orderID) {
+        return orderRepo.getOrder(orderID).toStringToDisplay();
+    }
 }
