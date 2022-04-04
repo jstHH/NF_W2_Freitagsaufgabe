@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,17 +25,17 @@ class ShopServiceTest {
         testShop = new ShopService(testProductRepo);
         testShop.addOrder();
         testShop.addOrder();
-        testShop.getOrder(1).addProduct(produkt1);
+        testShop.getOrder(1).get().addProduct(produkt1);
     }
 
     @Test
     void getProduct_whenProductIDValid_thenReturnProduct() {
-        assertEquals(produkt2, testShop.getProductbyID(456));
+        assertEquals(produkt2, testShop.getProductbyID(456).get());
     }
 
     @Test
     void getProduct_whenProductIDInvalid_thenReturnNull() {
-        assertNull(testShop.getProductbyID(99999));
+        assertEquals(Optional.empty(), testShop.getProductbyID(99999));
     }
 
     @Test
@@ -48,7 +49,7 @@ class ShopServiceTest {
         ShopService actual = new ShopService(products);
         actual.addOrder();
         actual.addOrder();
-        actual.getOrder(1).addProduct(produkt1);
+        actual.getOrder(1).get().addProduct(produkt1);
 
         assertEquals(testShop.getOrderList(), actual.getOrderList());
     }
@@ -58,12 +59,12 @@ class ShopServiceTest {
         Order expected = new Order(1);
         expected.addProduct(produkt1);
 
-        assertEquals(expected, testShop.getOrder(1));
+        assertEquals(expected, testShop.getOrder(1).get());
     }
 
     @Test
-    void getOrder_whenOrderIDInvalid_thenReturnNull() {
-        assertNull(testShop.getOrder(9999));
+    void getOrder_whenOrderIDInvalid_thenReturnOptional() {
+        assertEquals(Optional.empty(), testShop.getOrder(99999));
     }
 
     @Test
